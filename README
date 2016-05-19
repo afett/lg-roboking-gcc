@@ -1,17 +1,31 @@
-This directory contains the GNU Compiler Collection (GCC).
+gccl sources for LG roboking (hombot) VR6XXX
 
-The GNU Compiler Collection is free software.  See the file COPYING
-for copying permission.  The manuals, and some of the runtime
-libraries, are under different terms; see the individual source files
-for details.
+DISCLAIMER: This is no official LG Electronics source code release.
+I am in no way affiliated with LG Electronics. If you have questions
+about this repo please contact me via email at a.fett@gmx.de
 
-The directory INSTALL contains copies of the installation information
-as HTML and plain text.  The source of this information is
-gcc/doc/install.texi.  The installation information includes details
-of what is included in the GCC sources and what files GCC installs.
+This repo contains the "sanitized" sources of GPL/gcc-4.1.2 directory
+from the VR6XXX_OpenSource_v1.3.1.zip released by LG[1].
 
-See the file gcc/doc/gcc.texi (together with other files that it
-includes) for usage and porting information.  An online readable
-version of the manual is in the files gcc/doc/gcc.info*.
+This repo was build using the following steps:
 
-See http://gcc.gnu.org/bugs.html for how to report bugs usefully.
+1. unpack VR6XXX_OpenSource_v1.3.1.zip
+2. clone the gcc stable tree from [2]
+3. create branch 'lg-oss' from tag gcc-4_1_2-release which is the version in the LG sources
+4. remove all files and directories on that branch
+5. copy all files and directories from the GPL/gcc-4.1.2 directory of the LG sources to the repo
+6. commit all changes on branch lg-oss as a single to the repo
+7. create a new branch 'lg-oss-patches' from 'lg-oss'
+8. reset toplevel commit and split it up in multiple commits
+
+There are no relevant changes between the LG sources and upstream.
+
+9. delete master branch
+10. create a new master branch from tag gcc-4_1_2-release
+11. change origin of the repo to [3]
+12. Rename upstream README to README.upstream
+13. Add this file
+
+[1] http://opensource.lge.com/osSch/list?types=ALL&search=VHOMBOT3
+[2] git://gcc.gnu.org/git/gcc.git
+[3] github.com:afett/lg-roboking-gcc.git
